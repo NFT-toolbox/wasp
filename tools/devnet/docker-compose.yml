@@ -9,7 +9,7 @@ services:
     networks:
       - wasp-devnet
     volumes:
-      - wasp-db:/wasp/waspdb
+      - ./wasp-db:/wasp/waspdb
       - ./wasp.config.json:/etc/wasp_config.json
     expose:
       - "4000/udp" # Peering
@@ -38,7 +38,7 @@ services:
       --messageLayer.snapshot.genesisNode=
       --messageLayer.startSynced=true
     volumes:
-      - goshimmer-db:/tmp/devnetdb
+      - ./goshimmer-db:/tmp/devnetdb
       - ./goshimmer.config.json:/tmp/config.json:ro
       - ./snapshot.bin:/tmp/snapshot.bin:ro
     ports:
@@ -55,11 +55,11 @@ services:
       - "9000/tcp" # Analysis Dashboard
       - "9312/tcp" # Prometheus
 
-volumes:
-  goshimmer-db:
-    name: goshimmer-db
-  wasp-db:
-    name: wasp-db
+#volumes:
+#  goshimmer-db:
+#    name: goshimmer-db
+#  wasp-db:
+#    name: wasp-db
 
 networks:
   wasp-devnet: {}
