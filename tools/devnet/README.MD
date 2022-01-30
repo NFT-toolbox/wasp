@@ -27,6 +27,11 @@ PUBKEY=$(./wasp-cli peering info |grep PubKey| cut -d " " -f 2)
 ```
  * deploy evm chain
  ```
- ./wasp-cli chain evm deploy -a mychain --alloc 0xAa400a0f3cEd8a39Ea2A2e44a10Cb635A2827449:1000000000000000000000000
+ ./wasp-cli chain evm deploy -a mychain --alloc 0xAa400a0f3cEd8a39Ea2A2e44a10Cb635A2827449:1000000000000000000000000 --chainid 1076
+ ```
+ 
+ * start the jsonrpc
+ ```
+ ./wasp-cli chain evm jsonrpc --chainid 1076
  ```
  
